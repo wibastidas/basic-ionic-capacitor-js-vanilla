@@ -1,0 +1,7 @@
+{
+  "name": "basicIonicCapacitorJsVanilla",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}

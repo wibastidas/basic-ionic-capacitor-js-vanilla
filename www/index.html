@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Awesome Capacitor App</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <!-- Ionic lib -->
+    <script type="module" src="https://unpkg.com/@ionic/core@next/dist/ionic/ionic.esm.js"></script>
+    <!-- Ionic lib fallback for older browsers -->
+    <script nomodule src="https://unpkg.com/@ionic/core@next/dist/ionic/ionic.js"></script>
+      <!-- Ionic Styles-->
+    <link rel="stylesheet" href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css"/>
+    
+
+    <!-- <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico" /> -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="theme-color" content="#31d53d" />
+
+
+  </head>
+  <body>
+
+    <ion-app>
+      <!-- rutas de la aplicación -->
+      <ion-router>
+        <ion-route url="/" component="pagina-home"></ion-route>
+        <ion-route url="/registro" component="pagina-registro"></ion-route>
+        <ion-route url="/login" component="pagina-login"></ion-route>
+        <ion-route url="/listado" component="pagina-listado"></ion-route>
+      </ion-router> 
+      <ion-nav></ion-nav>
+
+    <!-- Menu lateral -->
+    <ion-menu side="start" content-id="main">
+        <ion-header>
+            <ion-toolbar color="primary">
+            <ion-title>Capacitor App</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+              <ion-item class="item-menu" href="/">Home</ion-item>
+              <ion-item class="item-menu" href="login">Login</ion-item>
+              <ion-item class="item-menu" href="registro">Registrarse</ion-item>
+              <ion-item class="item-menu" href="listado">Listado</ion-item>
+              <ion-item class="item-menu cerrar-sesion" href="login">Salir</ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    <div id="main"></div>
+
+     <!-- Pagina de Ingreso -->
+     <pagina-login class="pagina ion-page">
+      <ion-header>
+        <ion-toolbar color="primary">
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>Ingresar</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+
+      </ion-content>
+    </pagina-login>  
+
+    <!-- Pagina de Registro -->
+    <pagina-registro class="pagina ion-page">
+      <ion-header>
+        <ion-toolbar color="primary">
+            <ion-title>Registro</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content">
+
+      </ion-content>
+    </pagina-registro>  
+
+    <!-- Pagina listado -->
+    <pagina-listado class="pagina ion-page">
+      <ion-header>
+          <ion-toolbar color="primary">
+              <ion-buttons slot="start">
+                <ion-back-button default-href="/"></ion-back-button>
+              </ion-buttons>
+              <ion-title>listado</ion-title>
+          </ion-toolbar>
+      </ion-header>
+      <ion-content>
+          
+      </ion-content>
+    </pagina-listado>  
+
+    <!-- Pagina Home -->
+    <pagina-home class="pagina ion-page">
+      <ion-header>
+          <ion-toolbar color="primary">
+              <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+              </ion-buttons>
+              <ion-title>Home</ion-title>
+          </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <!-- <div id="coordenadas"></div> -->
+        <div id="infoDispositivo"></div>
+      </ion-content>
+  </pagina-home>  
+
+  </ion-app>
+
+  <script src="capacitor.js"></script>
+
+  <!-- Js de la app -->
+  <script src="./js/app.js" type="module"></script>
+
+  </body>
+</html>
