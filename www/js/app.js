@@ -50,21 +50,45 @@ function cambioDeRuta(event) {
     }
 }
 
-// async function obtenerGeolocalizacion() {
-//     // estamos en android o en web?
-//     if (Capacitor.isNativePlatform()) {
-//         let resultado = await Capacitor.Plugins.Geolocation.getCurrentPosition({ timeout: 3000 });
+// -------------------  Accediendo al dispositivo -------------------  
 
-//         document.getElementById("coordenadas").innerHTML = 
-//         `
-//             <ion-item><b>Latitude:</b> ${resultado.coords.latitude}</ion-item>
-//             <ion-item><b>Altitude:</b> ${resultado.coords.altitude}</ion-item>  
-//             <ion-item><b>Longitude:</b> ${resultado.coords.longitude}</ion-item>  
-//         `;
-//     } else {
-//         alert('Geolocalizacion funciona en entorno nativo');
-//     }
-// };
+document.getElementById('btnSacarFoto').addEventListener('click', sacarFoto);
+
+async function sacarFoto() {
+    // estamos en android o en web?
+    if (Capacitor.isNativePlatform()) {
+        let photo = await Capacitor.Plugins.Camera.getPhoto({
+            quality: 90,
+            // allowEditing: true,
+            resultType: "uri"
+        });
+    
+        document.getElementById("foto").src = photo.webPath;
+    } else {
+        alert('Esto solo funciona en entorno nativo');
+    }
+};
+
+//funciona en algunos emuladores. Con la API 30  no funciona. Pero funciona con API 28.
+document.getElementById('btnObtenerCoordenadas').addEventListener('click', obtenerGeolocalizacion);
+
+async function obtenerGeolocalizacion() {
+    // estamos en android o en web?
+    if (Capacitor.isNativePlatform()) {
+        let resultado = await Capacitor.Plugins.Geolocation.getCurrentPosition({ timeout: 3000 });
+
+        document.getElementById("coordenadas").innerHTML = 
+        `
+            <ion-item><b>Latitude:</b> ${resultado.coords.latitude}</ion-item>
+            <ion-item><b>Altitude:</b> ${resultado.coords.altitude}</ion-item>  
+            <ion-item><b>Longitude:</b> ${resultado.coords.longitude}</ion-item>  
+        `;
+    } else {
+        alert('Esto solo funciona en entorno nativo');
+    }
+};
+
+document.getElementById('btnObtenerInfoDispositivo').addEventListener('click', obtenerInformacionDelDispositivo);
 
 async function obtenerInformacionDelDispositivo() {
     // estamos en android o en web?
@@ -85,9 +109,8 @@ async function obtenerInformacionDelDispositivo() {
     }
 };
  
-function iniciar(){
-    // obtenerGeolocalizacion();
-    obtenerInformacionDelDispositivo();
-}
+// function iniciar(){
+//     obtenerGeolocalizacion();
+// }
 
-window.onload = iniciar;
+// window.onload = iniciar;

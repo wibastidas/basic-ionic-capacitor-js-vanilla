@@ -109,8 +109,22 @@
           </ion-toolbar>
       </ion-header>
       <ion-content>
-        <!-- <div id="coordenadas"></div> -->
+        <ion-button id="btnObtenerInfoDispositivo" expand="block" style="margin: 30px 20px 0px;">
+          Info del Disp.
+        </ion-button>
         <div id="infoDispositivo"></div>
+
+        <ion-button id="btnSacarFoto" expand="block" style="margin: 30px 20px 0px;">
+          <ion-icon slot="start" name="camera"></ion-icon>
+          Sacar foto
+        </ion-button>
+        <img id="foto" style="margin: 10px auto; max-height: 100px ;display: flex;">
+
+        <ion-button id="btnObtenerCoordenadas" expand="block" style="margin: 30px 20px 0px;">
+          Obtener Coordenadas
+        </ion-button>
+        <div id="coordenadas"></div>
+
       </ion-content>
   </pagina-home>  
 
