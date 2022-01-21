@@ -2,6 +2,9 @@
 include ':capacitor-android'
 project(':capacitor-android').projectDir = new File('../node_modules/@capacitor/android/capacitor')
 
+include ':capacitor-community-barcode-scanner'
+project(':capacitor-community-barcode-scanner').projectDir = new File('../node_modules/@capacitor-community/barcode-scanner/android')
+
 include ':capacitor-camera'
 project(':capacitor-camera').projectDir = new File('../node_modules/@capacitor/camera/android')
 
@@ -10,6 +13,9 @@ project(':capacitor-device').projectDir = new File('../node_modules/@capacitor/d
 
 include ':capacitor-geolocation'
 project(':capacitor-geolocation').projectDir = new File('../node_modules/@capacitor/geolocation/android')
+
+include ':capacitor-network'
+project(':capacitor-network').projectDir = new File('../node_modules/@capacitor/network/android')
 
 include ':capacitor-splash-screen'
 project(':capacitor-splash-screen').projectDir = new File('../node_modules/@capacitor/splash-screen/android')

@@ -108,9 +108,51 @@ async function obtenerInformacionDelDispositivo() {
         alert('Device funciona en entorno nativo');
     }
 };
+
+document.getElementById('btnNetworkStatus').addEventListener('click', obtenerNetworkStatus);
+
+async function obtenerNetworkStatus() {
+    // estamos en android o en web?
+    if (Capacitor.isNativePlatform()) {
+        let resultado = await Capacitor.Plugins.Network.getStatus();
+
+        document.getElementById("networkStatus").innerHTML = 
+        `
+            <ion-item><b>Conectado?:</b> ${resultado.connected}</ion-item> 
+            <ion-item><b>Tipo de Conexión:</b> ${resultado.connectionType}</ion-item> 
+        `;
+
+    } else {
+        alert('Device funciona en entorno nativo');
+    }
+};
  
+// document.getElementById('btnQrScanner').addEventListener('click', escanearQR);
+
+// async function escanearQR() {
+//     alert('escanearQR');
+
+//     // estamos en android o en web?
+//     if (Capacitor.isNativePlatform()) {
+//         alert('isNativePlatform');
+
+
+//         Capacitor.Plugins.BarcodeScanner.hideBackground(); // make background of WebView transparent
+//         const result = await Capacitor.Plugins.BarcodeScanner.startScan(); // start scanning and wait for a result
+
+//         // if the result has content
+//         if (result.hasContent) {
+//             alert('hasContent');
+//             console.log(result.content); // log the raw scanned content
+//         }
+
+//     } else {
+//         alert('Esto solo funciona en entorno nativo');
+//     }
+
+// }
 // function iniciar(){
 //     obtenerGeolocalizacion();
 // }
 
-// window.onload = iniciar;
+// window.onload = iniciar

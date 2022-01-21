@@ -1,5 +1,9 @@
 [
 	{
+		"pkg": "@capacitor-community/barcode-scanner",
+		"classpath": "com.dutchconcepts.capacitor.barcodescanner.BarcodeScanner"
+	},
+	{
 		"pkg": "@capacitor/camera",
 		"classpath": "com.capacitorjs.plugins.camera.CameraPlugin"
 	},
@@ -10,6 +14,10 @@
 	{
 		"pkg": "@capacitor/geolocation",
 		"classpath": "com.capacitorjs.plugins.geolocation.GeolocationPlugin"
+	},
+	{
+		"pkg": "@capacitor/network",
+		"classpath": "com.capacitorjs.plugins.network.NetworkPlugin"
 	},
 	{
 		"pkg": "@capacitor/splash-screen",
